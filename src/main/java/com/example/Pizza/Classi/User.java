@@ -5,6 +5,7 @@ import java.util.UUID;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,12 +27,24 @@ public class User {
 	@OneToOne
 	private Pizza pizza;
 	
-	public User (String _nome, String _cognome ) {
+	@ManyToOne
+	private Tavolo tavolo;
+	
+	public User (String _nome, String _cognome, Pizza _pizza, Tavolo _tavolo) {
 		
 		this.nome =  _nome;
 		this.cognome = _cognome;
+		this.tavolo = _tavolo;
 		
 	}
+
+	@Override
+	public String toString() {
+		return "User [ nome=" + nome + ", cognome=" + cognome + ", tavolo=" + tavolo
+				+ "]";
+	}
+	
+	
 	
 	
 }

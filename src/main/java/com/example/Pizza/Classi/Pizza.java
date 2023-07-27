@@ -26,14 +26,20 @@ public class Pizza {
 	@OneToOne(mappedBy = "pizza")
 	private User user;
 	
-	public Pizza (String _nome, double _prezzo, int _calorie, User _user) {
+	public Pizza (String _nome, double _prezzo, int _calorie) {
 		
 		this.nome = _nome;
 		this.prezzo = _prezzo;
 		this.calorie = _calorie;
-		this.user = _user;
+		
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Pizza [nome=" + nome + ", prezzo=" + prezzo + ", calorie=" + calorie + "]";
+	}
+
 	
 
 }
