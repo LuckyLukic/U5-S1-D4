@@ -14,24 +14,26 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
-public class User {
-
+public class Pizza {
+	
 	@Id
 	@GeneratedValue
 	private UUID id;
 	private String nome;
-	private String cognome;
+	private double prezzo;
+	private int calorie;
 	
-	@OneToOne
-	private Pizza pizza;
+	@OneToOne(mappedBy = "pizza")
+	private User user;
 	
-	public User (String _nome, String _cognome ) {
+	public Pizza (String _nome, double _prezzo, int _calorie, User _user) {
 		
-		this.nome =  _nome;
-		this.cognome = _cognome;
+		this.nome = _nome;
+		this.prezzo = _prezzo;
+		this.calorie = _calorie;
+		this.user = _user;
 		
 	}
 	
-	
+
 }
