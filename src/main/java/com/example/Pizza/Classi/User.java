@@ -30,7 +30,7 @@ public class User {
 	@ManyToOne
 	private Tavolo tavolo;
 	
-	public User (String _nome, String _cognome, Pizza _pizza, Tavolo _tavolo) {
+	public User (String _nome, String _cognome, Tavolo _tavolo) {
 		
 		this.nome =  _nome;
 		this.cognome = _cognome;
